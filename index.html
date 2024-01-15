@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="myformat.css" />
   <link rel="stylesheet" href="mobile.css" />
   <script src="loading.js"></script>  
-  <link rel="stylesheet" href="loading.css" />
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -43,7 +42,7 @@
 
 <div class="jumbotron text-center">
   <h1>Web Project 2024</h1> 
-  <p>We specialize in blablabla</p> 
+  <p id="msg" style="color: lime;">This site powered by 12345 John in T12024</p> 
   <div class="form-group row">
     <div class="col-xs-3"> 
     </div>
@@ -304,4 +303,23 @@
 
 </body>
 <script src="scripts.js"></script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxZglIagnHKh6o9vmrQ9Ko0jZQGSlnFbbYnrTHdxIU98_jUiOeuX-xOWVX8E5L5tD6t/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+          msg.innerHTML = "<br />Thank you For Subscribing ICT Solution Site by 12345 John"
+          setTimeout(function(){
+              msg.innerHTML = "This site powered by 12345 John in T12024"
+          }, 5000)
+          form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+  
+</script>
 </html>
