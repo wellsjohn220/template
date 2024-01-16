@@ -140,5 +140,15 @@
     -webkit-animation-duration: 1s;
     visibility: visible;
   }
-  
+  .dropdown-menu {
+    background-color: blue;
+    }
+    .dropdown-menu li.active a {
+    color: #fff !important;
+    background-color:blue !important;
+    }
+    .dropdown-menu li a:hover {
+    color: #fff !important;
+    background-color: blue !important;
+    }
   
